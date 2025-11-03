@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Special Message for Savi ❤️</title>
+    <!-- 1. Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- 2. Load Inter font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* Custom styles */
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+
+        /* Hide scrollbar for a cleaner look */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .no-scrollbar {
+            -ms-overflow-style: none;  /* IE and Edge */
+            scrollbar-width: none;  /* Firefox */
+        }
+
+        /* Simple fade-in animation */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1.2s ease-out forwards;
+        }
+
+        /* === NEW ANIMATION FOR BACKGROUND === */
+        /* This is the new animation. It slowly moves the
+          background position from left (0%) to right (100%)
+          and back again over 15 seconds.
+        */
+        @keyframes flowGradient {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* This new rule targets every slide inside the container.
+          - We make the background size (set by Tailwind) much larger.
+          - We apply our new 'flowGradient' animation, making it
+            run for 15 seconds, smoothly, and looping forever.
+        */
+        #scrollContainer > div {
+            background-size: 400% 400%;
+            animation: flowGradient 15s ease infinite;
+        }
+        /* === END OF NEW ANIMATION === */
+
+
+        /* Staggered fade-in for card content */
+        .card-content > * {
+            opacity: 0;
+        }
+        .card-content > *:nth-child(1) { animation: fadeIn 1s ease-out 0.3s forwards; }
+        .card-content > *:nth-child(2) { animation: fadeIn 1s ease-out 0.6s forwards; }
+        .card-content > *:nth-child(3) { animation: fadeIn 1s ease-out 0.9s forwards; }
+        .card-content > *:nth-child(4) { animation: fadeIn 1s ease-out 1.2s forwards; }
+        .card-content > *:nth-child(5) { animation: fadeIn 1s ease-out 1.5s forwards; } /* Added for new slides */
+
+    </style>
+</head>
+<body class="bg-gray-900 text-white overflow-hidden">
+
+    <!-- 
+      This is the main container for the swipeable "story".
+      - `overflow-x-scroll`: Allows horizontal scrolling.
+      - `overflow-y-hidden`: Prevents vertical scrolling.
+      - `h-screen`: Makes it fill the full height of the screen.
+      - `snap-x snap-mandatory`: This is the "magical" part! It makes the scroll
+        "snap" to the center of each slide, so she sees one at a time.
+      - `no-scrollbar`: Hides the scrollbar for a clean, app-like feel.
+    -->
+    <div id="scrollContainer" class="flex overflow-x-scroll overflow-y-hidden h-screen snap-x snap-mandatory no-scrollbar">
+
+        <!-- Slide 1: Welcome -->
+        <div class="flex-shrink-0 w-screen h-screen snap-center flex items-center justify-center bg-gradient-to-br from-indigo-500 via-purple-500 to-pink-500">
+            <div class="text-center p-8 card-content">
+                <h1 class="text-5xl md:text-7xl font-bold mb-4">Hey Savi...</h1>
+                <p class="text-xl md:text-2xl mb-8">I made a little something for you.</p>
+                <div class="animate-pulse text-lg text-indigo-100">(Swipe to continue &rarr;)</div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Message Part 1 -->
+        <div class="flex-shrink-0 w-screen h-screen snap-center flex items-center justify-center bg-gradient-to-br from-purple-600 to-indigo-700">
+            <div class="max-w-4xl mx-auto p-8 flex flex-col md:flex-row items-center gap-8 card-content">
+                <!-- MODIFIED IMAGE PATH -->
+                <img src="images/photo1.jpg" 
+                     alt="A photo of us" 
+                     class="w-full md:w-1/2 h-64 object-cover rounded-2xl shadow-2xl">
+                <div class="w-full md:w-1/2 text-center md:text-left">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">I know you're working so hard for your exams right now...</h2>
+                    <p class="text-lg md:text-xl text-indigo-100">...and I just want you to know that I see it.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 3: Message Part 2 -->
+        <div class="flex-shrink-0 w-screen h-screen snap-center flex items-center justify-center bg-gradient-to-br from-indigo-700 to-purple-800">
+            <div class="max-w-4xl mx-auto p-8 flex flex-col-reverse md:flex-row items-center gap-8 card-content">
+                <div class="w-full md:w-1/2 text-center md:text-left">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">I know you struggle...</h2>
+                    <p class="text-lg md:text-xl text-purple-100">...and how much effort you put into everything you do. You're doing amazing.</p>
+                </div>
+                <!-- MODIFIED IMAGE PATH -->
+                <img src="images/photo2.jpeg" 
+                     alt="Savi smiling" 
+                     class="w-full md:w-1/2 h-64 object-cover rounded-2xl shadow-2xl">
+            </div>
+        </div>
+
+        <!-- Slide 4: NEW Message -->
+        <div class="flex-shrink-0 w-screen h-screen snap-center flex items-center justify-center bg-gradient-to-br from-purple-800 to-indigo-800">
+            <div class="text-center p-8 card-content max-w-3xl">
+                <h2 class="text-4xl md:text-5xl font-bold mb-6">But you are never alone in it.</h2>
+                <p class="text-2xl md:text-3xl text-indigo-100">Feel my support with every page you turn.</p>
+                <p class="text-2xl md:text-3xl text-indigo-100 mt-4">I'm right here with you, cheering you on.</p>
+            </div>
+        </div>
+
+        <!-- Slide 5: Message Part 3 (Was 4) -->
+        <div class="flex-shrink-0 w-screen h-screen snap-center flex items-center justify-center bg-gradient-to-br from-indigo-800 to-pink-700">
+            <div class="text-center p-8 card-content">
+                <h2 class="text-4xl md:text-6xl font-bold mb-6">I'll always be with you to motivate you.</h2>
+                <p class="text-2xl md:text-3xl text-pink-100">No matter what.</p>
+            </div>
+        </div>
+
+        <!-- Slide 6: NEW Message -->
+        <div class="flex-shrink-0 w-screen h-screen snap-center flex items-center justify-center bg-gradient-to-br from-pink-700 to-rose-700">
+            <div class="max-w-4xl mx-auto p-8 flex flex-col-reverse md:flex-row items-center gap-8 card-content">
+                <div class="w-full md:w-1/2 text-center md:text-left">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">I'm so proud of the person you are.</h2>
+                    <p class="text-lg md:text-xl text-rose-100">Your dedication and strength are inspiring.</p>
+                </div>
+                <!-- MODIFIED IMAGE PATH -->
+                <img src="images/photo3.jpg" 
+                     alt="Savi studying" 
+                     class="w-full md:w-1/2 h-64 object-cover rounded-2xl shadow-2xl">
+            </div>
+        </div>
+
+        <!-- Slide 7: Message Part 4 (Was 5) -->
+        <div class="flex-shrink-0 w-screen h-screen snap-center flex items-center justify-center bg-gradient-to-br from-rose-700 to-rose-600">
+            <div class="max-w-4xl mx-auto p-8 flex flex-col md:flex-row items-center gap-8 card-content">
+                <!-- MODIFIED IMAGE PATH -->
+                <img src="images/photo4.jpg" 
+                     alt="Our future" 
+                     class="w-full md:w-1/2 h-64 object-cover rounded-2xl shadow-2xl">
+                <div class="w-full md:w-1/2 text-center md:text-left">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">You're doing these things...</h2>
+                    <p class="text-lg md:text-xl text-rose-100">...for the best future for <span class="font-bold text-white text-2xl">our</span> life.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: NEW Message -->
+        <div class="flex-shrink-0 w-screen h-screen snap-center flex items-center justify-center bg-gradient-to-br from-rose-600 to-orange-600">
+            <div class="max-w-4xl mx-auto p-8 flex flex-col md:flex-row items-center gap-8 card-content">
+                <!-- MODIFIED IMAGE PATH -->
+                <img src="images/photo6.jpg" 
+                     alt="Our adventures" 
+                     class="w-full md:w-1/2 h-64 object-cover rounded-2xl shadow-2xl">
+                <div class="w-full md:w-1/2 text-center md:text-left">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">I'm already dreaming...</h2>
+                    <p class="text-lg md:text-xl text-orange-100">...of all the adventures and relaxation we'll have when these exams are over.</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 9: Message Part 5 (Was 6) -->
+        <div class="flex-shrink-0 w-screen h-screen snap-center flex items-center justify-center bg-gradient-to-br from-orange-600 to-orange-500">
+            <div class="text-center p-8 card-content">
+                <h2 class="text-4xl md:text-6xl font-bold mb-6">Good luck with the exam!</h2>
+                <p class="text-2xl md:text-3xl text-orange-100 mb-8">Do your studies very well. You've got this!</p>
+                <!-- MODIFIED IMAGE PATH -->
+                <img src="images/photo5.jpg" 
+                     alt="You've got this!" 
+                     class="w-64 h-auto object-cover rounded-2xl shadow-2xl mx-auto">
+            </div>
+        </div>
+
+        <!-- Slide 10: Final (Was 7) -->
+        <div class="flex-shrink-0 w-screen h-screen snap-center flex items-center justify-center bg-gradient-to-br from-gray-800 to-gray-900">
+            <div class="text-center p-8 card-content">
+                <h1 class="text-6xl md:text-8xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-pink-400 to-purple-400 mb-8">I Love You</h1>
+                <p class="text-3xl md:text-4xl">- Sehan</p>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Navigation Arrows -->
+    <button id="prevButton" class="fixed top-1/2 -translate-y-1/2 left-4 z-10 p-3 bg-white/20 rounded-full text-white backdrop-blur-sm shadow-lg transition-all hover:bg-white/40 focus:outline-none hidden md:block opacity-0 invisible transition-opacity duration-300">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
+        </svg>
+    </button>
+
+    <button id="nextButton" class="fixed top-1/2 -translate-y-1/2 right-4 z-10 p-3 bg-white/20 rounded-full text-white backdrop-blur-sm shadow-lg transition-all hover:bg-white/40 focus:outline-none hidden md:block transition-opacity duration-300">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-6 h-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
+        </svg>
+    </button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const scrollContainer = document.getElementById('scrollContainer');
+            const prevButton = document.getElementById('prevButton');
+            const nextButton = document.getElementById('nextButton');
+            
+            // Ensure all elements exist
+            if (!scrollContainer || !prevButton || !nextButton) {
+                console.warn('Navigation elements not found. Arrows will not work.');
+                return;
+            }
+
+            const totalSlides = scrollContainer.childElementCount;
+
+            function updateButtonVisibility() {
+                // We check the screen width to only run this on 'md' screens and up
+                // (768px is the default Tailwind 'md' breakpoint)
+                if (window.innerWidth < 768) {
+                    prevButton.classList.add('hidden');
+                    nextButton.classList.add('hidden');
+                    return;
+                }
+
+                // Show the buttons if we are on a desktop
+                prevButton.classList.remove('hidden');
+                nextButton.classList.remove('hidden');
+
+                const slideWidth = window.innerWidth;
+                const scrollLeft = scrollContainer.scrollLeft;
+                // Use Math.round to account for the snap behavior
+                const currentIndex = Math.round(scrollLeft / slideWidth);
+
+                // Hide prev on first slide
+                if (currentIndex === 0) {
+                    prevButton.classList.add('opacity-0', 'invisible');
+                } else {
+                    prevButton.classList.remove('opacity-0', 'invisible');
+                }
+
+                // Hide next on last slide
+                if (currentIndex === totalSlides - 1) {
+                    nextButton.classList.add('opacity-0', 'invisible');
+                } else {
+                    nextButton.classList.remove('opacity-0', 'invisible');
+                }
+            }
+
+            // Click event for Next
+            nextButton.addEventListener('click', () => {
+                scrollContainer.scrollBy({
+                    left: window.innerWidth, // Scroll by one screen width
+                    behavior: 'smooth'
+                });
+            });
+
+            // Click event for Prev
+            prevButton.addEventListener('click', () => {
+                scrollContainer.scrollBy({
+                    left: -window.innerWidth, // Scroll back by one screen width
+                    behavior: 'smooth'
+                });
+            });
+
+            // Listen for scroll events (from swiping or clicking) to update buttons
+            scrollContainer.addEventListener('scroll', updateButtonVisibility);
+
+            // Also check visibility when the window is resized
+            window.addEventListener('resize', updateButtonVisibility);
+
+            // Initial check on page load
+            updateButtonVisibility();
+        });
+    </script>
+
+</body>
+</html>
+
+
+
